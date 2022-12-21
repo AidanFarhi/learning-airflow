@@ -1,3 +1,4 @@
+import os
 import json
 import pathlib
 import datetime
@@ -6,6 +7,8 @@ import requests.exceptions as requests_exceptions
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
+
+os.environ['NO_PROXY'] = 'URL'
 
 dag = DAG(
     dag_id='download_rocket_launches',
